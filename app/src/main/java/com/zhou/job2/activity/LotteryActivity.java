@@ -18,7 +18,6 @@ import butterknife.BindView;
 
 public class LotteryActivity extends BaseActivity {
 
-    @BindView(R.id.recycleView) RecyclerView recyclerView;
 
     @Override
     public int getLayout() {
@@ -27,28 +26,8 @@ public class LotteryActivity extends BaseActivity {
 
     @Override
     public void init() {
-        initRecycle();
+
     }
 
-    private void initRecycle() {
-        List<String> data = new ArrayList<>();
-        for (int i=0;i<20;i++){
-            data.add(""+i);
-        }
-        CommonAdapter adapter = new CommonAdapter<String>(this, R.layout.recycle, data) {
-            @Override
-            public void convert(ViewHolder holder, String s, int position) {
-                holder.setOnClickListener(R.id.rl_next, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startToActivity(HapplyActivity.class);
-                    }
-                });
-            }
-        };
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-    }
 
 }

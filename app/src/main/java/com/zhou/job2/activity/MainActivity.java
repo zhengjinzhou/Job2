@@ -40,15 +40,18 @@ public class MainActivity extends BaseActivity {
             case R.id.tv_setting:
                 startToActivity(SettingActivity.class);
                 break;
+                //跟info调换了跳转
             case R.id.tv_find:
-                startToActivity(FindActivity.class);
+                startToActivity(InformActivity.class);
                 break;
             case R.id.tv_qiandao:
                 ToastUtil.show(getApplicationContext(), "签到");
                 break;
+                //头部，与info调换了
             case R.id.iv_tongzhi:
-                startToActivity(InformActivity.class);
+                startToActivity(FindActivity.class);
                 break;
+            //开奖
             case R.id.tv_kaijiang:
                 startToActivity(LotteryActivity.class);
                 break;
