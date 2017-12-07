@@ -1,0 +1,13 @@
+package com.zhou.job2;
+
+/**
+ * Created by zhou on 2017/12/7.
+ */
+
+public class Constant {
+    //http://www.08cpapp.com/Lottery_server/check_and_get_url.php?appid=358509&type=android
+
+    public final static String URL = "http://www.08cpapp.com/Lottery_server/check_and_get_url.php";
+
+    public final static String URL_MAIN = URL+"?appid=358509&type=android";
+}
