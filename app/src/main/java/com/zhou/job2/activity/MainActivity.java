@@ -10,6 +10,7 @@ import com.zhou.job2.R;
 import com.zhou.job2.adapter.base.CommonAdapter;
 import com.zhou.job2.adapter.base.ViewHolder;
 import com.zhou.job2.base.BaseActivity;
+import com.zhou.job2.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,10 +32,23 @@ public class MainActivity extends BaseActivity {
         initRecycle();
     }
 
-    @OnClick({R.id.iv_tongzhi}) void onClick(View view){
+    @OnClick({R.id.iv_tongzhi,R.id.tv_kaijiang,R.id.tv_qiandao,R.id.tv_find,R.id.tv_setting})
+    void onClick(View view){
         switch (view.getId()){
+            case R.id.tv_setting:
+                startToActivity(SettingActivity.class);
+                break;
+            case R.id.tv_find:
+                startToActivity(FindActivity.class);
+                break;
+            case R.id.tv_qiandao:
+                ToastUtil.show(getApplicationContext(),"签到");
+                break;
             case R.id.iv_tongzhi:
                 startToActivity(InformActivity.class);
+                break;
+            case R.id.tv_kaijiang:
+                startToActivity(LotteryActivity.class);
                 break;
         }
     }

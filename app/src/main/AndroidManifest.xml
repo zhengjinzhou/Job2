@@ -182,7 +182,10 @@
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.HapplyActivity" />
-        <activity android:name=".activity.InformActivity"></activity>
+        <activity android:name=".activity.InformActivity" />
+        <activity android:name=".activity.LotteryActivity" />
+        <activity android:name=".activity.FindActivity" />
+        <activity android:name=".activity.SettingActivity"></activity>
     </application>
 
 </manifest>
