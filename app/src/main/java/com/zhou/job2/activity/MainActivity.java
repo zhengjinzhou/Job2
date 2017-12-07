@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.zhou.job2.R;
@@ -20,7 +21,8 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
-    @BindView(R.id.recycleView) RecyclerView recyclerView;
+    @BindView(R.id.recycleView)
+    RecyclerView recyclerView;
 
     @Override
     public int getLayout() {
@@ -32,9 +34,9 @@ public class MainActivity extends BaseActivity {
         initRecycle();
     }
 
-    @OnClick({R.id.iv_tongzhi,R.id.tv_kaijiang,R.id.tv_qiandao,R.id.tv_find,R.id.tv_setting})
-    void onClick(View view){
-        switch (view.getId()){
+    @OnClick({R.id.iv_tongzhi, R.id.tv_kaijiang, R.id.tv_qiandao, R.id.tv_find, R.id.tv_setting})
+    void onClick(View view) {
+        switch (view.getId()) {
             case R.id.tv_setting:
                 startToActivity(SettingActivity.class);
                 break;
@@ -42,7 +44,7 @@ public class MainActivity extends BaseActivity {
                 startToActivity(FindActivity.class);
                 break;
             case R.id.tv_qiandao:
-                ToastUtil.show(getApplicationContext(),"签到");
+                ToastUtil.show(getApplicationContext(), "签到");
                 break;
             case R.id.iv_tongzhi:
                 startToActivity(InformActivity.class);
@@ -52,10 +54,11 @@ public class MainActivity extends BaseActivity {
                 break;
         }
     }
+
     private void initRecycle() {
         List<String> data = new ArrayList<>();
-        for (int i=0;i<20;i++){
-            data.add(""+i);
+        for (int i = 0; i < 20; i++) {
+            data.add("" + i);
         }
         CommonAdapter adapter = new CommonAdapter<String>(this, R.layout.recycle, data) {
             @Override
@@ -71,5 +74,30 @@ public class MainActivity extends BaseActivity {
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+    }
+
+    //单击返回
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitBy2Click();
+        }
+        return false;
+    } //记录用户首次点击返回键的时间
+
+    private long firstTime = 0;
+    /**
+     * 双击退出函数
+     */
+    private static Boolean isExit = false;
+
+    private void exitBy2Click() {
+        long secondTime = System.currentTimeMillis();
+        if (secondTime - firstTime > 2000) {
+            ToastUtil.show(getApplicationContext(), "再按一次退出程序");
+            firstTime = secondTime;
+        } else {
+            finish();
+        }
     }
 }
