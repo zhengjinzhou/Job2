@@ -1,12 +1,15 @@
 package com.zhou.job2.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.app.Activity;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.zhou.job2.R;
 import com.zhou.job2.adapter.base.CommonAdapter;
 import com.zhou.job2.adapter.base.ViewHolder;
@@ -19,10 +22,12 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener{
 
     @BindView(R.id.recycleView)
     RecyclerView recyclerView;
+    @BindView(R.id.refresh)
+    SwipeRefreshLayout refreshLayout;
 
     @Override
     public int getLayout() {
@@ -31,6 +36,21 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void init() {
+        //refreshLayout.setRefreshing(false);
+        refreshLayout.setColorSchemeResources(android.R.color.holo_blue_light, android.R.color.holo_red_light, android.R.color.holo_orange_light, android.R.color.holo_green_light);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ToastUtil.show(getApplicationContext(),"刷新完成");
+                        refreshLayout.setRefreshing(false);
+                    }
+                },2000);
+            }
+        });
+
         initRecycle();
     }
 
@@ -45,11 +65,11 @@ public class MainActivity extends BaseActivity {
                 startToActivity(InformActivity.class);
                 break;
             case R.id.tv_qiandao:
-                ToastUtil.show(getApplicationContext(), "签到");
+                startToActivity(TypeActivity.class);
                 break;
                 //头部，与info调换了
             case R.id.iv_tongzhi:
-                startToActivity(FindActivity.class);
+                startToActivity(TongZhiActivity.class);
                 break;
             //开奖
             case R.id.tv_kaijiang:
@@ -59,17 +79,33 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initRecycle() {
-        List<String> data = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            data.add("" + i);
-        }
-        CommonAdapter adapter = new CommonAdapter<String>(this, R.layout.recycle, data) {
+        List<BaseData> data = new ArrayList<>();
+        data.add(new BaseData(R.drawable.caipiao,"彩票","普通彩票"));
+        data.add(new BaseData(R.drawable.d3,"3D彩票","像3D一样的彩票"));
+        data.add(new BaseData(R.drawable.daletou,"大乐透","开心不止那么大"));
+        data.add(new BaseData(R.drawable.gws,"猜奖","猜中你有奖"));
+        data.add(new BaseData(R.drawable.jingcai,"竞赛","看足球，赢大奖"));
+        data.add(new BaseData(R.drawable.kuai3,"快3","你懂的"));
+        data.add(new BaseData(R.drawable.kuai8,"快乐8","让你发发发"));
+        data.add(new BaseData(R.drawable.lanqiu2,"篮球","看热血篮球也有奖"));
+        data.add(new BaseData(R.drawable.ll,"11选5","精彩不停止"));
+        data.add(new BaseData(R.drawable.qixingcai,"七星彩","大家都喜欢玩的"));
+        data.add(new BaseData(R.drawable.shuangseqiu,"双色球","好玩你解析"));
+        data.add(new BaseData(R.drawable.pailie3_5,"彩票","彩票"));
+        data.add(new BaseData(R.drawable.pai,"彩票","彩票"));
+        data.add(new BaseData(R.drawable.fucai3d,"彩票","来司机快上车"));
+        data.add(new BaseData(R.drawable.chai,"彩票","彩票"));
+
+        CommonAdapter adapter = new CommonAdapter<BaseData>(this, R.layout.recycle, data) {
             @Override
-            public void convert(ViewHolder holder, String s, int position) {
+            public void convert(ViewHolder holder, BaseData baseData, int position) {
+                Glide.with(mContext).load(baseData.icon).into((ImageView) holder.getView(R.id.iv_type));
+                holder.setText(R.id.tv_type,baseData.getName());
+                holder.setText(R.id.tv_des,baseData.getMsg());
                 holder.setOnClickListener(R.id.rl_next, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startToActivity(HapplyActivity.class);
+                        startToActivity(HistoryActivity.class);
                     }
                 });
             }
@@ -101,6 +137,50 @@ public class MainActivity extends BaseActivity {
             firstTime = secondTime;
         } else {
             finish();
+        }
+    }
+
+    @Override
+    public void onRefresh() {
+
+    }
+
+    public class BaseData{
+        private int icon;
+        private String name;
+        private String msg;
+        public BaseData() {
+
+        }
+
+        public BaseData(int icon, String name, String msg) {
+            this.icon = icon;
+            this.name = name;
+            this.msg = msg;
+        }
+
+        public int getIcon() {
+            return icon;
+        }
+
+        public void setIcon(int icon) {
+            this.icon = icon;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
         }
     }
 }

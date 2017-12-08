@@ -39,7 +39,7 @@ public class SplashActivity extends BaseActivity {
             public void run() {
                 initNet();
             }
-        }, 2000);
+        }, 800);
     }
 
 

@@ -184,8 +184,10 @@
         <activity android:name=".activity.HapplyActivity" />
         <activity android:name=".activity.InformActivity" />
         <activity android:name=".activity.LotteryActivity" />
-        <activity android:name=".activity.FindActivity" />
-        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.TongZhiActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.HistoryActivity" />
+        <activity android:name=".activity.TypeActivity"></activity>
     </application>
 
 </manifest>

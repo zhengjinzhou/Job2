@@ -33,74 +33,80 @@
             android:src="@drawable/tongzhi" />
     </RelativeLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
-            android:descendantFocusability="blocksDescendants"
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <LinearLayout
+                android:descendantFocusability="blocksDescendants"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:layout_marginBottom="0.5dp"
-                android:background="#f9f6f6">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <TextView
-                    android:textColor="#1e1e1e"
-                    android:background="#f51d05"
-                    android:id="@+id/tv_kaijiang"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="开奖" />
+                    android:layout_marginBottom="0.5dp"
+                    android:background="#f9f6f6">
 
-                <TextView
-                    android:textColor="#1e1e1e"
-                    android:background="#0c96f8"
-                    android:id="@+id/tv_find"
-                    android:layout_width="0dp"
+                    <TextView
+                        android:textColor="#1e1e1e"
+                        android:background="#f51d05"
+                        android:id="@+id/tv_kaijiang"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="开奖" />
+
+                    <TextView
+                        android:textColor="#1e1e1e"
+                        android:background="#0c96f8"
+                        android:id="@+id/tv_find"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="发现" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="发现" />
+                    android:background="#f9f6f6">
+
+                    <TextView
+                        android:textColor="#1e1e1e"
+                        android:background="#36ee49"
+                        android:id="@+id/tv_qiandao"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_marginRight="0.5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="彩票种类" />
+
+                    <TextView
+                        android:textColor="#1e1e1e"
+                        android:background="#f8f80c"
+                        android:id="@+id/tv_setting"
+                        android:layout_width="0dp"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="我" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="#f9f6f6">
-
-                <TextView
-                    android:textColor="#1e1e1e"
-                    android:background="#36ee49"
-                    android:id="@+id/tv_qiandao"
-                    android:layout_width="0dp"
-                    android:layout_height="?attr/actionBarSize"
-                    android:layout_marginRight="0.5dp"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="签到" />
-
-                <TextView
-                    android:textColor="#1e1e1e"
-                    android:background="#f8f80c"
-                    android:id="@+id/tv_setting"
-                    android:layout_width="0dp"
-                    android:layout_height="?attr/actionBarSize"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="我" />
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycleView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

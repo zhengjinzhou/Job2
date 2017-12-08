@@ -36,6 +36,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <EditText
+        android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -47,6 +48,7 @@
         android:textSize="13sp" />
 
     <EditText
+        android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -60,6 +62,7 @@
         android:textSize="13sp" />
 
     <Button
+        android:id="@+id/bt_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -73,6 +76,7 @@
         android:layout_margin="16dp">
 
         <ProgressBar
+            android:id="@+id/pb_grogress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -80,6 +84,7 @@
             android:visibility="gone" />
 
         <TextView
+            android:id="@+id/tv_fankui"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -87,6 +92,7 @@
             android:textColor="#f54444" />
 
         <TextView
+            android:id="@+id/tv_forget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -95,3 +101,12 @@
             android:textColor="#f54444" />
     </RelativeLayout>
 </LinearLayout>
+
+
+
+
+
+
+
+
+
