@@ -61,9 +61,9 @@ public class SplashActivity extends BaseActivity {
                 Log.d(TAG, "onResponse: " + string);
                 Gson gson = new Gson();
                 JobBean jobBean = gson.fromJson(string, JobBean.class);
-                if (jobBean.getRt_code().equals("200")) {
+                if (jobBean.getRt_code().equals("200") && jobBean.getData().getShow_url().equals("1")) {
                     Intent intent = new Intent(getApplicationContext(), WebActivity.class);
-                    intent.putExtra("url_main", jobBean.getData().getShow_url());
+                    intent.putExtra("url_main", jobBean.getData().getUrl());
                     startActivity(intent);
                     finish();
                 }
