@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zhou.job2.activity.TongZhiActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.zhou.job2.activity.TongZhiActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,6 +16,7 @@
             android:layout_height="?attr/actionBarSize">
 
             <ImageView
+                android:id="@+id/iv_back"
                 android:layout_width="32dp"
                 android:layout_height="22dp"
                 android:layout_centerVertical="true"
@@ -35,15 +36,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/refresh"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycleView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </android.support.v4.widget.SwipeRefreshLayout>
+        </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

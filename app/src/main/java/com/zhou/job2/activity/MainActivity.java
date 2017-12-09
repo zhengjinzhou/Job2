@@ -1,6 +1,6 @@
 package com.zhou.job2.activity;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,7 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnRefreshListener {
 
     @BindView(R.id.recycleView)
     RecyclerView recyclerView;
@@ -44,10 +44,10 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        ToastUtil.show(getApplicationContext(),"刷新完成");
+                        ToastUtil.show(getApplicationContext(), "刷新完成");
                         refreshLayout.setRefreshing(false);
                     }
-                },2000);
+                }, 2000);
             }
         });
 
@@ -60,14 +60,14 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
             case R.id.tv_setting:
                 startToActivity(SettingActivity.class);
                 break;
-                //跟info调换了跳转
+            //跟info调换了跳转
             case R.id.tv_find:
                 startToActivity(InformActivity.class);
                 break;
             case R.id.tv_qiandao:
                 startToActivity(TypeActivity.class);
                 break;
-                //头部，与info调换了
+            //头部，与info调换了
             case R.id.iv_tongzhi:
                 startToActivity(TongZhiActivity.class);
                 break;
@@ -80,32 +80,35 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
 
     private void initRecycle() {
         List<BaseData> data = new ArrayList<>();
-        data.add(new BaseData(R.drawable.caipiao,"彩票","普通彩票"));
-        data.add(new BaseData(R.drawable.d3,"3D彩票","像3D一样的彩票"));
-        data.add(new BaseData(R.drawable.daletou,"大乐透","开心不止那么大"));
-        data.add(new BaseData(R.drawable.gws,"猜奖","猜中你有奖"));
-        data.add(new BaseData(R.drawable.jingcai,"竞赛","看足球，赢大奖"));
-        data.add(new BaseData(R.drawable.kuai3,"快3","你懂的"));
-        data.add(new BaseData(R.drawable.kuai8,"快乐8","让你发发发"));
-        data.add(new BaseData(R.drawable.lanqiu2,"篮球","看热血篮球也有奖"));
-        data.add(new BaseData(R.drawable.ll,"11选5","精彩不停止"));
-        data.add(new BaseData(R.drawable.qixingcai,"七星彩","大家都喜欢玩的"));
-        data.add(new BaseData(R.drawable.shuangseqiu,"双色球","好玩你解析"));
-        data.add(new BaseData(R.drawable.pailie3_5,"彩票","彩票"));
-        data.add(new BaseData(R.drawable.pai,"彩票","彩票"));
-        data.add(new BaseData(R.drawable.fucai3d,"彩票","来司机快上车"));
-        data.add(new BaseData(R.drawable.chai,"彩票","彩票"));
+        data.add(new BaseData(R.drawable.caipiao, "彩票", "普通彩票","11"));
+        data.add(new BaseData(R.drawable.d3, "3D彩票", "像3D一样的彩票","12"));
+        data.add(new BaseData(R.drawable.daletou, "大乐透", "开心不止那么大","13"));
+        data.add(new BaseData(R.drawable.gws, "猜奖", "猜中你有奖","14"));
+        data.add(new BaseData(R.drawable.jingcai, "竞赛", "看足球，赢大奖","15"));
+        data.add(new BaseData(R.drawable.kuai3, "快3", "你懂的","16"));
+        data.add(new BaseData(R.drawable.kuai8, "快乐8", "让你发发发","17"));
+        data.add(new BaseData(R.drawable.lanqiu2, "篮球", "看热血篮球也有奖","18"));
+        data.add(new BaseData(R.drawable.ll, "11选5", "精彩不停止","19"));
+        data.add(new BaseData(R.drawable.qixingcai, "七星彩", "大家都喜欢玩的","20"));
+        data.add(new BaseData(R.drawable.shuangseqiu, "双色球", "好玩你解析","21"));
+        data.add(new BaseData(R.drawable.pailie3_5, "彩票", "彩票","22"));
+        data.add(new BaseData(R.drawable.pai, "彩票", "彩票","23"));
+        data.add(new BaseData(R.drawable.fucai3d, "彩票", "来司机快上车","24"));
+        data.add(new BaseData(R.drawable.chai, "彩票", "彩票","25"));
 
         CommonAdapter adapter = new CommonAdapter<BaseData>(this, R.layout.recycle, data) {
             @Override
-            public void convert(ViewHolder holder, BaseData baseData, int position) {
+            public void convert(ViewHolder holder, final BaseData baseData, int position) {
                 Glide.with(mContext).load(baseData.icon).into((ImageView) holder.getView(R.id.iv_type));
-                holder.setText(R.id.tv_type,baseData.getName());
-                holder.setText(R.id.tv_des,baseData.getMsg());
+                holder.setText(R.id.tv_type, baseData.getName());
+                holder.setText(R.id.tv_des, baseData.getMsg());
                 holder.setOnClickListener(R.id.rl_next, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startToActivity(HistoryActivity.class);
+                        //startToActivity(HistoryActivity.class);
+                        Intent intent = new Intent(getApplicationContext(),HistoryActivity.class);
+                        intent.putExtra("id","11");
+                        startActivity(intent);
                     }
                 });
             }
@@ -145,18 +148,29 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
 
     }
 
-    public class BaseData{
+    public class BaseData {
         private int icon;
         private String name;
         private String msg;
+        private String num;
+
         public BaseData() {
 
         }
 
-        public BaseData(int icon, String name, String msg) {
+        public BaseData(int icon, String name, String msg,String num) {
+            this.num = num;
             this.icon = icon;
             this.name = name;
             this.msg = msg;
+        }
+
+        public String getNum() {
+            return num;
+        }
+
+        public void setNum(String num) {
+            this.num = num;
         }
 
         public int getIcon() {

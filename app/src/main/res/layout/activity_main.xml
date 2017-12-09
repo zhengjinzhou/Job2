@@ -19,17 +19,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="美好彩票"
+            android:text="华为时时彩"
             android:textColor="#fff"
             android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/iv_tongzhi"
-            android:padding="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:padding="8dp"
             android:src="@drawable/tongzhi" />
     </RelativeLayout>
 
@@ -37,14 +37,15 @@
         android:id="@+id/refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:descendantFocusability="blocksDescendants"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -54,24 +55,24 @@
                     android:background="#f9f6f6">
 
                     <TextView
-                        android:textColor="#1e1e1e"
-                        android:background="#f51d05"
                         android:id="@+id/tv_kaijiang"
                         android:layout_width="0dp"
                         android:layout_height="?attr/actionBarSize"
                         android:layout_weight="1"
+                        android:background="#f51d05"
                         android:gravity="center"
-                        android:text="开奖" />
+                        android:text="开奖"
+                        android:textColor="#1e1e1e" />
 
                     <TextView
-                        android:textColor="#1e1e1e"
-                        android:background="#0c96f8"
                         android:id="@+id/tv_find"
                         android:layout_width="0dp"
                         android:layout_height="?attr/actionBarSize"
                         android:layout_weight="1"
+                        android:background="#0c96f8"
                         android:gravity="center"
-                        android:text="发现" />
+                        android:text="发现"
+                        android:textColor="#1e1e1e" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -80,25 +81,25 @@
                     android:background="#f9f6f6">
 
                     <TextView
-                        android:textColor="#1e1e1e"
-                        android:background="#36ee49"
                         android:id="@+id/tv_qiandao"
                         android:layout_width="0dp"
                         android:layout_height="?attr/actionBarSize"
                         android:layout_marginRight="0.5dp"
                         android:layout_weight="1"
+                        android:background="#36ee49"
                         android:gravity="center"
-                        android:text="彩票种类" />
+                        android:text="彩票种类"
+                        android:textColor="#1e1e1e" />
 
                     <TextView
-                        android:textColor="#1e1e1e"
-                        android:background="#f8f80c"
                         android:id="@+id/tv_setting"
                         android:layout_width="0dp"
                         android:layout_height="?attr/actionBarSize"
                         android:layout_weight="1"
+                        android:background="#f8f80c"
                         android:gravity="center"
-                        android:text="我" />
+                        android:text="我"
+                        android:textColor="#1e1e1e" />
                 </LinearLayout>
 
                 <android.support.v7.widget.RecyclerView

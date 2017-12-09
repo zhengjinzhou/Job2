@@ -54,7 +54,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="美好彩票已累计中奖" />
+                    android:text="华为时时彩已累计中奖" />
 
                 <TextView
                     android:layout_width="wrap_content"

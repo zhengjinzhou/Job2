@@ -1,13 +1,12 @@
 package com.zhou.job2.activity;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.squareup.okhttp.Call;
@@ -21,8 +20,6 @@ import com.zhou.job2.adapter.base.CommonAdapter;
 import com.zhou.job2.adapter.base.ViewHolder;
 import com.zhou.job2.base.BaseActivity;
 import com.zhou.job2.base.TypeBean;
-import com.zhou.job2.bean.JobBean;
-import com.zhou.job2.bean.KaiJiangBean;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,6 +33,9 @@ public class TypeActivity extends BaseActivity {
     private static final String TAG = "TypeActivity";
     @BindView(R.id.recycleView)
     RecyclerView recyclerView;
+    @BindView(R.id.progress)
+    ProgressBar progressBar;
+
     private CommonAdapter adapter;
     private List<TypeBean.ResultBeanX.ResultBean> data;
 
@@ -43,21 +43,30 @@ public class TypeActivity extends BaseActivity {
 
     public int getLayout() {
         return R.layout.activity_type;
+
     }
 
     @Override
     public void init() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+            }
+        }, 1500);
         initRecycle();
         initNet();
     }
 
-    @OnClick({R.id.iv_back}) void onClick(View view){
-        switch (view.getId()){
+    @OnClick({R.id.iv_back})
+    void onClick(View view) {
+        switch (view.getId()) {
             case R.id.iv_back:
                 finish();
                 break;
         }
     }
+
     private void initNet() {
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder().url(Constant.URL_TYPE).build();
@@ -86,7 +95,7 @@ public class TypeActivity extends BaseActivity {
             TypeBean typeBean = gson.fromJson(data, TypeBean.class);
             TypeBean.ResultBeanX.ResultBean bean = new TypeBean.ResultBeanX.ResultBean();
             final List<TypeBean.ResultBeanX.ResultBean> result = typeBean.getResult().getResult();
-            Log.d(TAG, "getResult: "+result.toString());
+            Log.d(TAG, "getResult: " + result.toString());
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -104,11 +113,11 @@ public class TypeActivity extends BaseActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void convert(ViewHolder holder, TypeBean.ResultBeanX.ResultBean s, int position) {
-                if (position % 2 == 0){
+                if (position % 2 == 0) {
                     holder.getView(R.id.rl).setBackgroundColor(R.color.colorPrimary);
                 }
-                holder.setText(R.id.tv_type,s.getName());
-                holder.setText(R.id.tv_id,s.getCaipiaoid());
+                holder.setText(R.id.tv_type, s.getName());
+                holder.setText(R.id.tv_id, s.getCaipiaoid());
             }
         };
         recyclerView.setNestedScrollingEnabled(false);

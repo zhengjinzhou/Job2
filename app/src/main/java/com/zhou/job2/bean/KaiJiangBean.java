@@ -12,7 +12,7 @@ public class KaiJiangBean {
      * code : 10000
      * charge : true
      * msg : 查询成功,扣费
-     * result : {"msg":"ok","result":{"number":"05 07 10 18 19 21 27","refernumber":"28","saleamount":"7482530","caipiaoid":"13","opendate":"2014-10-29","totalmoney":"1739051","issueno":"2014127","deadline":"2014-12-27","prize":[{"num":"0","singlebonus":"0","require":"","prizename":"一等奖"},{"num":"9","singlebonus":"27603","require":"","prizename":"二等奖"},{"num":"245","singlebonus":"2028","require":"","prizename":"三等奖"},{"num":"773","singlebonus":"200","require":"","prizename":"四等奖"},{"num":"8165","singlebonus":"50","require":"","prizename":"五等奖"},{"num":"14423","singlebonus":"10","require":"","prizename":"六等奖"},{"num":"95000","singlebonus":"5","require":"","prizename":"七等奖"},{"num":"0","singlebonus":"0","require":"中4+0","prizename":""}]},"status":"0"}
+     * result : {"msg":"ok","result":{"number":"02 10 12 21 23 27","refernumber":"12","saleamount":"405427926","caipiaoid":"11","opendate":"2014-11-02","totalmoney":"71262030","issueno":"2014127","deadline":"2014-12-31","prize":[{"num":"15","singlebonus":"5666666","require":"","prizename":"一等奖"},{"num":"189","singlebonus":"94735","require":"","prizename":"二等奖"},{"num":"2512","singlebonus":"3000","require":"","prizename":"三等奖"},{"num":"105324","singlebonus":"200","require":"","prizename":"四等奖"},{"num":"1773966","singlebonus":"10","require":"","prizename":"五等奖"},{"num":"16139836","singlebonus":"5","require":"","prizename":"六等奖"},{"num":"0","singlebonus":"0","require":"中2+1/1+1/0+1","prizename":""}]},"status":"0"}
      */
 
     private String code;
@@ -55,7 +55,7 @@ public class KaiJiangBean {
     public static class ResultBeanX {
         /**
          * msg : ok
-         * result : {"number":"05 07 10 18 19 21 27","refernumber":"28","saleamount":"7482530","caipiaoid":"13","opendate":"2014-10-29","totalmoney":"1739051","issueno":"2014127","deadline":"2014-12-27","prize":[{"num":"0","singlebonus":"0","require":"","prizename":"一等奖"},{"num":"9","singlebonus":"27603","require":"","prizename":"二等奖"},{"num":"245","singlebonus":"2028","require":"","prizename":"三等奖"},{"num":"773","singlebonus":"200","require":"","prizename":"四等奖"},{"num":"8165","singlebonus":"50","require":"","prizename":"五等奖"},{"num":"14423","singlebonus":"10","require":"","prizename":"六等奖"},{"num":"95000","singlebonus":"5","require":"","prizename":"七等奖"},{"num":"0","singlebonus":"0","require":"中4+0","prizename":""}]}
+         * result : {"number":"02 10 12 21 23 27","refernumber":"12","saleamount":"405427926","caipiaoid":"11","opendate":"2014-11-02","totalmoney":"71262030","issueno":"2014127","deadline":"2014-12-31","prize":[{"num":"15","singlebonus":"5666666","require":"","prizename":"一等奖"},{"num":"189","singlebonus":"94735","require":"","prizename":"二等奖"},{"num":"2512","singlebonus":"3000","require":"","prizename":"三等奖"},{"num":"105324","singlebonus":"200","require":"","prizename":"四等奖"},{"num":"1773966","singlebonus":"10","require":"","prizename":"五等奖"},{"num":"16139836","singlebonus":"5","require":"","prizename":"六等奖"},{"num":"0","singlebonus":"0","require":"中2+1/1+1/0+1","prizename":""}]}
          * status : 0
          */
 
@@ -89,15 +89,15 @@ public class KaiJiangBean {
 
         public static class ResultBean {
             /**
-             * number : 05 07 10 18 19 21 27
-             * refernumber : 28
-             * saleamount : 7482530
-             * caipiaoid : 13
-             * opendate : 2014-10-29
-             * totalmoney : 1739051
+             * number : 02 10 12 21 23 27
+             * refernumber : 12
+             * saleamount : 405427926
+             * caipiaoid : 11
+             * opendate : 2014-11-02
+             * totalmoney : 71262030
              * issueno : 2014127
-             * deadline : 2014-12-27
-             * prize : [{"num":"0","singlebonus":"0","require":"","prizename":"一等奖"},{"num":"9","singlebonus":"27603","require":"","prizename":"二等奖"},{"num":"245","singlebonus":"2028","require":"","prizename":"三等奖"},{"num":"773","singlebonus":"200","require":"","prizename":"四等奖"},{"num":"8165","singlebonus":"50","require":"","prizename":"五等奖"},{"num":"14423","singlebonus":"10","require":"","prizename":"六等奖"},{"num":"95000","singlebonus":"5","require":"","prizename":"七等奖"},{"num":"0","singlebonus":"0","require":"中4+0","prizename":""}]
+             * deadline : 2014-12-31
+             * prize : [{"num":"15","singlebonus":"5666666","require":"","prizename":"一等奖"},{"num":"189","singlebonus":"94735","require":"","prizename":"二等奖"},{"num":"2512","singlebonus":"3000","require":"","prizename":"三等奖"},{"num":"105324","singlebonus":"200","require":"","prizename":"四等奖"},{"num":"1773966","singlebonus":"10","require":"","prizename":"五等奖"},{"num":"16139836","singlebonus":"5","require":"","prizename":"六等奖"},{"num":"0","singlebonus":"0","require":"中2+1/1+1/0+1","prizename":""}]
              */
 
             private String number;
@@ -184,8 +184,8 @@ public class KaiJiangBean {
 
             public static class PrizeBean {
                 /**
-                 * num : 0
-                 * singlebonus : 0
+                 * num : 15
+                 * singlebonus : 5666666
                  * require :
                  * prizename : 一等奖
                  */
@@ -226,51 +226,7 @@ public class KaiJiangBean {
                 public void setPrizename(String prizename) {
                     this.prizename = prizename;
                 }
-
-                @Override
-                public String toString() {
-                    return "{" +
-                            "num='" + num + '\'' +
-                            ", singlebonus='" + singlebonus + '\'' +
-                            ", require='" + require + '\'' +
-                            ", prizename='" + prizename + '\'' +
-                            '}';
-                }
-            }
-
-            @Override
-            public String toString() {
-                return "{" +
-                        "number='" + number + '\'' +
-                        ", refernumber='" + refernumber + '\'' +
-                        ", saleamount='" + saleamount + '\'' +
-                        ", caipiaoid='" + caipiaoid + '\'' +
-                        ", opendate='" + opendate + '\'' +
-                        ", totalmoney='" + totalmoney + '\'' +
-                        ", issueno='" + issueno + '\'' +
-                        ", deadline='" + deadline + '\'' +
-                        ", prize=" + prize +
-                        '}';
             }
         }
-
-        @Override
-        public String toString() {
-            return "{" +
-                    "msg='" + msg + '\'' +
-                    ", result=" + result +
-                    ", status='" + status + '\'' +
-                    '}';
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "{" +
-                "code='" + code + '\'' +
-                ", charge=" + charge +
-                ", msg='" + msg + '\'' +
-                ", result=" + result +
-                '}';
     }
 }

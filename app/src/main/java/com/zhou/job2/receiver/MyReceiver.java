@@ -8,12 +8,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 
 import com.orhanobut.logger.Logger;
-import com.zhou.job2.activity.MainActivity;
-import com.zhou.job2.activity.TestActivity;
+import com.zhou.job2.activity.SplashActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,7 +74,7 @@ public class MyReceiver extends BroadcastReceiver {
                 //  MainActivity.newInstance(context, "");
                 //打开自定义的Activity
                 //   MainActivity.newInstanse(context, url);
-                Intent intentsss = new Intent(context, TestActivity.class);
+                Intent intentsss = new Intent(context, SplashActivity.class);
                 intentsss.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
                 context.startActivity(intentsss);
 

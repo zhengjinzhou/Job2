@@ -1,10 +1,7 @@
 package com.zhou.job2.activity;
 
-import android.app.Activity;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -73,7 +70,7 @@ public class LotteryActivity extends BaseActivity implements SwipeRefreshLayout.
                 holder.setOnClickListener(R.id.rl_next, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startToActivity(HapplyActivity.class);
+                        //startToActivity(HapplyActivity.class);
                     }
                 });
             }
