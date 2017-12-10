@@ -19,7 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="华为时时彩"
+            android:drawableLeft="@drawable/emoji_1f4b0"
+            android:text="时时彩技巧"
             android:textColor="#fff"
             android:textSize="20sp" />
 
@@ -36,7 +37,8 @@
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#fff">
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -54,25 +56,53 @@
                     android:layout_marginBottom="0.5dp"
                     android:background="#f9f6f6">
 
-                    <TextView
-                        android:id="@+id/tv_kaijiang"
+                    <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="?attr/actionBarSize"
-                        android:layout_weight="1"
-                        android:background="#f51d05"
-                        android:gravity="center"
-                        android:text="开奖"
-                        android:textColor="#1e1e1e" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-                    <TextView
-                        android:id="@+id/tv_find"
+                        <TextView
+                            android:id="@+id/tv_kaijiang"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center"
+                            android:text="开奖"
+                            android:textColor="#1e1e1e" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="38dp"
+                            android:layout_marginStart="38dp"
+                            android:src="@drawable/hongbao" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="?attr/actionBarSize"
-                        android:layout_weight="1"
-                        android:background="#0c96f8"
-                        android:gravity="center"
-                        android:text="发现"
-                        android:textColor="#1e1e1e" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_find"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center"
+                            android:text="发现"
+                            android:textColor="#1e1e1e" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="38dp"
+                            android:layout_marginStart="38dp"
+                            android:src="@drawable/find" />
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -80,26 +110,53 @@
                     android:layout_height="?attr/actionBarSize"
                     android:background="#f9f6f6">
 
-                    <TextView
-                        android:id="@+id/tv_qiandao"
+                    <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="?attr/actionBarSize"
-                        android:layout_marginRight="0.5dp"
-                        android:layout_weight="1"
-                        android:background="#36ee49"
-                        android:gravity="center"
-                        android:text="彩票种类"
-                        android:textColor="#1e1e1e" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-                    <TextView
-                        android:id="@+id/tv_setting"
+                        <TextView
+                            android:id="@+id/tv_qiandao"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center"
+                            android:text="种类"
+                            android:textColor="#1e1e1e" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="38dp"
+                            android:layout_marginStart="38dp"
+                            android:src="@drawable/type" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
                         android:layout_width="0dp"
-                        android:layout_height="?attr/actionBarSize"
-                        android:layout_weight="1"
-                        android:background="#f8f80c"
-                        android:gravity="center"
-                        android:text="我"
-                        android:textColor="#1e1e1e" />
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_setting"
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize"
+                            android:gravity="center"
+                            android:text="登录"
+                            android:textColor="#1e1e1e" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="38dp"
+                            android:layout_marginStart="38dp"
+                            android:src="@drawable/login" />
+                    </RelativeLayout>
                 </LinearLayout>
 
                 <android.support.v7.widget.RecyclerView

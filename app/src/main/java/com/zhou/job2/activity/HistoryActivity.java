@@ -22,9 +22,9 @@ import butterknife.BindView;
 public class HistoryActivity extends BaseActivity {
 
     private static final String TAG = "HistoryActivity";
-    //https://way.jd.com/jisuapi/query3?caipiaoid=11&issueno=2014127&appkey=d3a62ea686a062d5a5ba1b91fda4f1df
-    private String url_one = "https://way.jd.com/jisuapi/query3?caipiaoid=";
-    private String url_two = "&appkey=d3a62ea686a062d5a5ba1b91fda4f1df";
+    String url = "https://way.jd.com/jisuapi/query3?caipiaoid=11&issueno=2014127&appkey=d3a62ea686a062d5a5ba1b91fda4f1df";
+   // private String url_one = "https://way.jd.com/jisuapi/query3?caipiaoid=";
+   // private String url_two = "&appkey=d3a62ea686a062d5a5ba1b91fda4f1df";
 
     @BindView(R.id.tv_all)
     TextView tv_all;
@@ -44,6 +44,7 @@ public class HistoryActivity extends BaseActivity {
     TextView tv_five;
     @BindView(R.id.tv_six)
     TextView tv_six;
+    private String format;
 
     @Override
     public int getLayout() {
@@ -52,13 +53,13 @@ public class HistoryActivity extends BaseActivity {
 
     @Override
     public void init() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMd");
-        String format = dateFormat.format(new Date());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        format = dateFormat.format(new Date());
         Log.d(TAG, "init: " + format);
-        //&issueno=2014127
+        /*//&issueno=2014127
         String issueno = "&issueno=" + format;
         String id = getIntent().getStringExtra("id");
-        String url = url_one + id + issueno + url_two;
+        String url = url_one + id + issueno + url_two;*/
         getInfo(url);
     }
 
@@ -94,7 +95,7 @@ public class HistoryActivity extends BaseActivity {
 
                 tv_all.setText("池奖金额:" + jiangBean.getCode());
                 tv_number.setText("中奖号码：" + result.getNumber());
-                tv_time.setText("开奖时间：" + result.getOpendate());
+                tv_time.setText("开奖时间：" + format);
                 tv_noe.setText("一等奖：人数" + result.getPrize().get(0).getNum() + "金额" + result.getPrize().get(0).getSinglebonus() + "--------" + result.getPrize().get(0).getRequire());
                 tv_two.setText("二等奖：人数" + result.getPrize().get(1).getNum() + "金额" + result.getPrize().get(1).getSinglebonus() + "--------" + result.getPrize().get(1).getRequire());
                 tv_three.setText("三等奖：人数" + result.getPrize().get(2).getNum() + "金额" + result.getPrize().get(2).getSinglebonus() + "--------" + result.getPrize().get(2).getRequire());

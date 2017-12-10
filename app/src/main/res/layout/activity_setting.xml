@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="手机号码登录"
+                android:text="邮箱登录"
                 android:textColor="#fff" />
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/bg_et"
-        android:hint="请输入手机号码"
+        android:hint="请输入邮箱"
         android:maxLines="1"
         android:padding="12dp"
         android:singleLine="true"

@@ -1,6 +1,8 @@
 package com.zhou.job2.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -22,15 +24,27 @@ public class StartActivity extends AppCompatActivity {
     private ViewPager viewPager;  //对应的viewPager
 
     private List<View> viewList;//view数组
+    private SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        sp = getSharedPreferences("config", Context.MODE_PRIVATE);
+        boolean first = sp.getBoolean("first", false);
+
+        if (!first) {
+            init();
+        } else {
+            startActivity(new Intent(getApplicationContext(), SplashActivity.class));
+        }
+    }
+
+
+    private void init() {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         LayoutInflater inflater = getLayoutInflater();
         view1 = inflater.inflate(R.layout.layout1, null);
@@ -41,7 +55,11 @@ public class StartActivity extends AppCompatActivity {
         view4.findViewById(R.id.bt_splash).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),SplashActivity.class));
+                SharedPreferences.Editor edit = sp.edit();
+                edit.putBoolean("first",true);
+                edit.commit();
+
+                startActivity(new Intent(getApplicationContext(), SplashActivity.class));
                 finish();
             }
         });

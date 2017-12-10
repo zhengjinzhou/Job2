@@ -36,7 +36,7 @@ public class SplashActivity extends BaseActivity {
             public void run() {
                 initNet();
             }
-        }, 800);
+        }, 200);
     }
 
 
@@ -62,6 +62,9 @@ public class SplashActivity extends BaseActivity {
                     Intent intent = new Intent(getApplicationContext(), WebActivity.class);
                     intent.putExtra("url_main", jobBean.getData().getUrl());
                     startActivity(intent);
+                    finish();
+                }else {
+                    startToActivity(MainActivity.class);
                     finish();
                 }
             }

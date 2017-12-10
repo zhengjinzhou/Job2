@@ -1,10 +1,6 @@
 package com.zhou.job2.activity;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -55,7 +51,7 @@ public class SettingActivity extends BaseActivity {
                 break;
             case R.id.bt_login:
                 if (TextUtils.isEmpty(etUsername.getText().toString())) {
-                    ToastUtil.show(getApplicationContext(), "手机号码不能为空");
+                    ToastUtil.show(getApplicationContext(), "邮箱不能为空");
                     return;
                 }
                 if (TextUtils.isEmpty(etPassword.getText().toString())) {

@@ -3,6 +3,7 @@
     android:id="@+id/rl"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
     android:padding="16dp">
 
     <TextView
@@ -11,8 +12,11 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="50dp"
+        android:drawableLeft="@drawable/type"
+        android:drawablePadding="5dp"
         android:text="种类"
-        android:textColor="#1e1e1e" />
+        android:textColor="#fff"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/tv_id"
@@ -21,6 +25,8 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="50dp"
+        android:drawableLeft="@drawable/tou"
+        android:drawablePadding="5dp"
         android:text="彩票id"
-        android:textColor="#1e1e1e" />
+        android:textColor="#fff" />
 </RelativeLayout>

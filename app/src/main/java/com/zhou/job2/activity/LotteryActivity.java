@@ -5,6 +5,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.zhou.job2.R;
 import com.zhou.job2.adapter.base.CommonAdapter;
@@ -24,6 +26,10 @@ public class LotteryActivity extends BaseActivity implements SwipeRefreshLayout.
     RecyclerView recyclerView;
     @BindView(R.id.refresh)
     SwipeRefreshLayout refreshLayout;
+    @BindView(R.id.tv_show)
+    TextView tv_show;
+    @BindView(R.id.progress)
+    ProgressBar progressBar;
 
     @Override
     public int getLayout() {
@@ -33,7 +39,14 @@ public class LotteryActivity extends BaseActivity implements SwipeRefreshLayout.
     @Override
     public void init() {
         initRefresh();
-        initRecycle();
+        //initRecycle();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+                tv_show.setVisibility(View.VISIBLE);
+            }
+        },2000);
     }
 
     private void initRefresh() {
