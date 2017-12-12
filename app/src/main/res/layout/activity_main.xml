@@ -144,7 +144,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="?attr/actionBarSize"
                             android:gravity="center"
-                            android:text="登录"
+                            android:text="轻松一刻"
                             android:textColor="#1e1e1e" />
 
                         <ImageView

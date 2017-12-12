@@ -20,18 +20,6 @@ public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.iv_back)
     ImageView ivBack;
-    @BindView(R.id.et_username)
-    EditText etUsername;
-    @BindView(R.id.et_password)
-    EditText etPassword;
-    @BindView(R.id.bt_login)
-    Button btLogin;
-    @BindView(R.id.pb_grogress)
-    ProgressBar pbGrogress;
-    @BindView(R.id.tv_fankui)
-    TextView tvFankui;
-    @BindView(R.id.tv_forget)
-    TextView tvForget;
 
     @Override
     public int getLayout() {
@@ -43,35 +31,11 @@ public class SettingActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.iv_back, R.id.bt_login, R.id.tv_fankui, R.id.tv_forget})
+    @OnClick({R.id.iv_back})
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
                 finish();
-                break;
-            case R.id.bt_login:
-                if (TextUtils.isEmpty(etUsername.getText().toString())) {
-                    ToastUtil.show(getApplicationContext(), "邮箱不能为空");
-                    return;
-                }
-                if (TextUtils.isEmpty(etPassword.getText().toString())) {
-                    ToastUtil.show(getApplicationContext(), "密码不能为空");
-                    return;
-                }
-                pbGrogress.setVisibility(View.VISIBLE);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        pbGrogress.setVisibility(View.GONE);
-                        ToastUtil.show(getApplicationContext(), "对不起，现在系统繁忙，请稍后尝试");
-                    }
-                }, 2000);
-                break;
-            case R.id.tv_fankui:
-                ToastUtil.show(getApplicationContext(), "您的信息我们已记录，感谢您的反馈");
-                break;
-            case R.id.tv_forget:
-                ToastUtil.show(getApplicationContext(), "对不起，现在系统繁忙，请稍后尝试");
                 break;
         }
     }

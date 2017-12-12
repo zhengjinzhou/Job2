@@ -26,80 +26,15 @@
                 android:src="@drawable/bar_back_white" />
 
             <TextView
-                android:textSize="20sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="邮箱登录"
-                android:textColor="#fff" />
+                android:text="设置"
+                android:textColor="#fff"
+                android:textSize="20sp" />
         </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <EditText
-        android:id="@+id/et_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/bg_et"
-        android:hint="请输入邮箱"
-        android:maxLines="1"
-        android:padding="12dp"
-        android:singleLine="true"
-        android:textSize="13sp" />
-
-    <EditText
-        android:id="@+id/et_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/bg_et"
-        android:hint="请输入密码"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:padding="12dp"
-        android:singleLine="true"
-        android:textSize="13sp" />
-
-    <Button
-        android:id="@+id/bt_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="立即登录"
-        android:textColor="#fff" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp">
-
-        <ProgressBar
-            android:id="@+id/pb_grogress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="52dp"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/tv_fankui"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="反馈"
-            android:textColor="#f54444" />
-
-        <TextView
-            android:id="@+id/tv_forget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:padding="10dp"
-            android:text="忘记密码"
-            android:textColor="#f54444" />
-    </RelativeLayout>
 </LinearLayout>
 
 

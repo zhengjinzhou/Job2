@@ -58,7 +58,7 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
     void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_setting:
-                startToActivity(SettingActivity.class);
+                startToActivity(TongZhiActivity.class);
                 break;
             //跟info调换了跳转
             case R.id.tv_find:
@@ -91,10 +91,10 @@ public class MainActivity extends BaseActivity implements SwipeRefreshLayout.OnR
         data.add(new BaseData(R.drawable.ll, "11选5", "精彩不停止","19"));
         data.add(new BaseData(R.drawable.qixingcai, "七星彩", "大家都喜欢玩的","20"));
         data.add(new BaseData(R.drawable.shuangseqiu, "双色球", "好玩你解析","21"));
-        data.add(new BaseData(R.drawable.pailie3_5, "彩票", "彩票","22"));
-        data.add(new BaseData(R.drawable.pai, "彩票", "彩票","23"));
-        data.add(new BaseData(R.drawable.fucai3d, "彩票", "来司机快上车","24"));
-        data.add(new BaseData(R.drawable.chai, "彩票", "彩票","25"));
+        data.add(new BaseData(R.drawable.pailie3_5, "开心乐", "开开心心买彩票","22"));
+        data.add(new BaseData(R.drawable.pai, "扑克", "经典之作","23"));
+        data.add(new BaseData(R.drawable.fucai3d, "足球竞赛", "来司机快上车","24"));
+        data.add(new BaseData(R.drawable.chai, "拆虹包", "RMB等你来","25"));
 
         CommonAdapter adapter = new CommonAdapter<BaseData>(this, R.layout.recycle, data) {
             @Override
